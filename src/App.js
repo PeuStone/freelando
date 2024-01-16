@@ -1,7 +1,9 @@
+import { Estilos } from "./componentes/EstilosGlobais";
 
 function App() {
   return (
     <div>
+      <Estilos />
       <h1>Freelando</h1>
     </div>
   );
