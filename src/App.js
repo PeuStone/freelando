@@ -1,10 +1,13 @@
+import { Card } from "./componentes/Card";
 import { Estilos } from "./componentes/EstilosGlobais";
 
 function App() {
   return (
     <div>
       <Estilos />
-      <h1>Freelando</h1>
+      <Card>
+        <h1>Freelando</h1>
+      </Card>
     </div>
   );
 }
