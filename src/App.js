@@ -7,12 +7,31 @@ import { ProvedorTema } from "./componentes/ProvedorTema";
 import { Rodape } from "./componentes/Rodape";
 import { Tipografia } from "./componentes/Tipografia";
 import { Botao } from "./componentes/Botao";
+import { FreelandoLogo } from "./componentes/Icones/FreelandoLogo";
+import { IconeWhatsApp } from "./componentes/Icones/IconeWhatsApp";
+import { IconeTwitch } from "./componentes/Icones/IconeTwitch";
+import { IconeInstagram } from "./componentes/Icones/IconeInstagram";
+import { IconeTwitter } from "./componentes/Icones/IconeTwitter";
+import { Link } from "./componentes/Link";
+import { ListaInline } from './componentes/ListaInline'
+import { ItemListaInline } from './componentes/ListaInline/ItemListaInline'
 
 function App() {
   return (
     <ProvedorTema>
       <Estilos />
-      <Cabecalho />
+      <Cabecalho>
+        <Container>
+          <Row align="center">
+            <Col>
+              <FreelandoLogo />
+            </Col>
+            <Col style={{ textAlign: 'right' }}>
+              <Link>Login</Link>
+            </Col>
+          </Row>
+        </Container>
+      </Cabecalho>
       <Container style={{ margin: '80px 0' }}>
         <Row justify="center">
           <Col lg={6} md={8} sm={12}>
@@ -67,8 +86,42 @@ function App() {
           </Col>
         </Row>
       </Container>
-      <Rodape />
-    </ProvedorTema>
+      <Rodape>
+        <Container>
+          <Row align="center">
+            <Col>
+              <FreelandoLogo height={40} width={176} />
+              <Tipografia variante='legenda' componente='legenda'>Desenvolvido por Alura. Projeto fictício sem fins comerciais.</Tipografia>
+            </Col>
+            <Col style={{ textAlign: 'right' }}>
+              <Tipografia variante='legenda' componente='legenda'>Acesse nossas redes:</Tipografia>
+              <ListaInline>
+                <ItemListaInline>
+                  <a href="/" aria-label="Link para o WhatsApp">
+                    <IconeWhatsApp />
+                  </a>
+                </ItemListaInline>
+                <ItemListaInline>
+                  <a href="/" aria-label="Link para a Twitch">
+                    <IconeTwitch />
+                  </a>
+                </ItemListaInline>
+                <ItemListaInline>
+                  <a href="/" aria-label="Link para a Instagram">
+                    <IconeInstagram />
+                  </a>
+                </ItemListaInline>
+                <ItemListaInline>
+                  <a href="/" aria-label="Link para a Twitter">
+                    <IconeTwitter />
+                  </a>
+                </ItemListaInline>
+              </ListaInline>
+            </Col>
+          </Row>
+        </Container>
+      </Rodape>
+    </ProvedorTema >
   );
 }
 
