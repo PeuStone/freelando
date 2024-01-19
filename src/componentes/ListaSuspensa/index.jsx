@@ -36,7 +36,36 @@ const BotaoEstilizado = styled.button`
     }
 `
 
-export const ListaSuspensa = ({ titulo }) => {
+const ListaSuspensaEstilizada = styled.ul`
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: ${props => props.theme.cores.branco};
+    z-index: 1;
+    border: 1px solid ${props => props.theme.cores.neutras.a};
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-top: none;
+    margin: 0;
+    padding: 0 ${props => props.theme.espacamentos.m};
+    list-style: none;
+`
+
+const ItemListaSuspensaEstilizado = styled.li`
+    padding: ${props => props.theme.espacamentos.xs} 0;
+    text-align: center;
+    border-bottom: 1px solid ${props => props.theme.cores.neutras.c};
+    cursor: pointer;
+    &:last-child {
+        border: none;
+    }
+    &:hover {
+        color: ${props => props.theme.cores.focus};
+    }
+`
+
+export const ListaSuspensa = ({ titulo, opcoes }) => {
     const [estaAberta, alternarVisibilidade] = useState(false)
 
     return (
@@ -45,6 +74,11 @@ export const ListaSuspensa = ({ titulo }) => {
             <BotaoEstilizado onClick={() => alternarVisibilidade(!estaAberta)}>
                 Selecione <span>{estaAberta ? '▲' : '▼'}</span>
             </BotaoEstilizado>
+            {estaAberta && <ListaSuspensaEstilizada>
+                {opcoes.map(opcao => <ItemListaSuspensaEstilizado key={opcao.value}>
+                    {opcao.text}
+                </ItemListaSuspensaEstilizado>)}
+            </ListaSuspensaEstilizada>}
         </LabelEstilizada>
     )
 }
