@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import PaginaInicial from "../paginas/PaginaInicial";
 import SelecaoCliente from "../paginas/cadastro/SelecaoCliente";
 import LayoutBaseCadastro from "../paginas/cadastro/LayoutBaseCadastro";
 import LayoutBase from "../paginas/LayoutBase";
