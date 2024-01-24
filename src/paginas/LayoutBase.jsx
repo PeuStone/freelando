@@ -28,7 +28,9 @@ const LayoutBase = () => {
                     </Row>
                 </Container>
             </Cabecalho>
-            <Outlet />
+            <Container>
+                <Outlet />
+            </Container>
             <Rodape>
                 <Container>
                     <Row align="center">
