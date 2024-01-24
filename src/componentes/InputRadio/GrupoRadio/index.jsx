@@ -1,10 +1,10 @@
-import Radio from "./Radio";
+import InputRadio from "..";
 
 const GrupoRadio = ({ opcoes, valor, onChange }) => {
     return (
         <div>
             {opcoes.map((option) => (
-                <Radio
+                <InputRadio
                     key={option.valor}
                     valor={option.valor}
                     label={option.label}

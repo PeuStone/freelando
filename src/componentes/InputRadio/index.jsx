@@ -40,7 +40,7 @@ const InputEscondido = styled.input`
     }
 `
 
-const Radio = ({ valor, label, checked, onClick }) => (
+const InputRadio = ({ valor, label, checked, onClick }) => (
     <>
         <InputEscondido type="radio" valor={valor} checked={checked} onChange={onClick} id={`radio-customizado-${valor}`} />
         <LabelEstilizada htmlFor={`radio-customizado-${valor}`} checked={checked}>
@@ -49,4 +49,4 @@ const Radio = ({ valor, label, checked, onClick }) => (
     </>
 );
 
-export default Radio;
+export default InputRadio;
