@@ -1,9 +1,9 @@
 import styled from "@emotion/styled"
-import { Tipografia } from "../../componentes/Tipografia"
 import ClienteConcluido from './assets/cliente-concluido.png'
 import { Col, Row } from "react-grid-system"
 import { Link } from "react-router-dom"
 import { Botao } from "../../componentes/Botao"
+import GrupoTipografia from "../../componentes/GrupoTipografia"
 
 const ImagemEstilizada = styled.img`
     max-width: 100%;
@@ -14,12 +14,10 @@ const Concluido = () => {
     return (
         <>
             <div style={{ textAlign: 'center' }}>
-                <Tipografia variante="h1" componente="h1">
-                    Seu perfil está completo!
-                </Tipografia>
-                <Tipografia variante="body" componente="body">
-                    Agora é só começar a se conectar com os melhores freelancers do mercado!
-                </Tipografia>
+                <GrupoTipografia
+                    titulo={"Seu perfil está completo!"}
+                    descricao={"Agora é só começar a se conectar com os melhores freelancers do mercado!"}
+                />
             </div>
             <figure>
                 <ImagemEstilizada src={ClienteConcluido} alt="" />

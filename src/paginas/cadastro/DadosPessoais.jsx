@@ -1,9 +1,9 @@
-import { Tipografia } from "../../componentes/Tipografia"
 import { Col, Row } from "react-grid-system"
 import { Botao } from "../../componentes/Botao"
 import { Link } from "react-router-dom"
 import { CampoTexto } from "../../componentes/CampoTexto"
 import { ListaSuspensa } from "../../componentes/ListaSuspensa"
+import GrupoTipografia from "../../componentes/GrupoTipografia"
 
 const estadosBrasileiros = [
     { "text": "Acre", "value": "AC" },
@@ -40,12 +40,10 @@ const DadosPessoais = () => {
     return (
         <div>
             <div style={{ textAlign: 'center' }}>
-                <Tipografia variante="h1" componente="h1">
-                    Crie seu cadastro
-                </Tipografia>
-                <Tipografia variante="body" componente="body">
-                    Crie seu perfil gratuitamente para começar a trabalhar com os melhores freelancers. Em seguida, você poderá dar mais detalhes sobre suas demandas e sobre sua forma de trabalho.
-                </Tipografia>
+                <GrupoTipografia
+                    titulo={"Crie seu cadastro"}
+                    descricao={"Crie seu perfil gratuitamente para começar a trabalhar com os melhores freelancers. Em seguida, você poderá dar mais detalhes sobre suas demandas e sobre sua forma de trabalho."}
+                />
             </div>
             <Row>
                 <Col lg={12} md={12} sm={12}>
