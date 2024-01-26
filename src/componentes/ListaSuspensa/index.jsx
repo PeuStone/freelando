@@ -66,10 +66,9 @@ const ItemListaSuspensaEstilizado = styled.li`
     color: ${props => props.focoAtivo ? props.theme.cores.focus : 'inherit'};
 `
 
-export const ListaSuspensa = ({ titulo, opcoes }) => {
+export const ListaSuspensa = ({ titulo, opcoes, valor, onChange }) => {
     const [estaAberta, alternarVisibilidade] = useState(false)
     const [opcaoFocada, setOpcaoFocada] = useState(null)
-    const [opcaoSelecionada, setOpcaoSelecionada] = useState(null)
 
     const manipularTeclaTeclado = (evento) => {
         alternarVisibilidade(true)
@@ -99,7 +98,7 @@ export const ListaSuspensa = ({ titulo, opcoes }) => {
                 evento.preventDefault();
                 setOpcaoFocada(null)
                 alternarVisibilidade(false)
-                setOpcaoSelecionada(opcoes[opcaoFocada])
+                onChange(opcoes[opcaoFocada])
                 break;
             case 'Tab':
             case 'Escape':
@@ -121,7 +120,7 @@ export const ListaSuspensa = ({ titulo, opcoes }) => {
                 onKeyDown={manipularTeclaTeclado}
             >
                 <div>
-                    {opcaoSelecionada ? opcaoSelecionada.text : 'Selecione'}
+                    {valor ? valor.text : 'Selecione'}
                 </div>
                 <div>
                     <span>{estaAberta ? '▲' : '▼'}</span>
@@ -132,7 +131,7 @@ export const ListaSuspensa = ({ titulo, opcoes }) => {
                     <ItemListaSuspensaEstilizado
                         key={opcao.value}
                         focoAtivo={index === opcaoFocada}
-                        onClick={() => setOpcaoSelecionada(opcao)}
+                        onClick={() => onChange(opcao)}
                     >
                         {opcao.text}
                     </ItemListaSuspensaEstilizado>)}
