@@ -38,10 +38,24 @@ const estadosBrasileiros = [
 
 const DadosPessoais = () => {
 
-    const { usuario, setNomeCompleto, setUf, setCidade, setEmail, setSenha, setSenhaConfirmada } = useCadastroUsuarioContext()
+    const {
+        usuario,
+        setNomeCompleto,
+        setUf,
+        setCidade,
+        setEmail,
+        setSenha,
+        setSenhaConfirmada,
+        submeterUsuario
+    } = useCadastroUsuarioContext()
+
+    const finalizarCadastro = (evento) => {
+        evento.preventDefault();
+        submeterUsuario()
+    }
 
     return (
-        <div>
+        <form onSubmit={finalizarCadastro}>
             <div style={{ textAlign: 'center' }}>
                 <GrupoTipografia
                     titulo={"Crie seu cadastro"}
@@ -112,15 +126,15 @@ const DadosPessoais = () => {
                 </Col>
                 <Col lg={6} md={6} sm={6}>
                     <div style={{ textAlign: 'right' }}>
-                        <Link to='/cadastro/concluido'>
-                            <Botao>
-                                Próxima
-                            </Botao>
-                        </Link>
+                        {/* <Link to='/cadastro/concluido'> */}
+                        <Botao>
+                            Próxima
+                        </Botao>
+                        {/* </Link> */}
                     </div>
                 </Col>
             </Row>
-        </div>
+        </form>
     )
 }
 

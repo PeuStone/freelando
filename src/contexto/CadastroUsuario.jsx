@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const usuarioInicial = {
     perfil: '',
@@ -21,6 +22,7 @@ export const CadastroUsuarioContext = createContext({
     setEmail: () => null,
     setSenha: () => null,
     setSenhaConfirmada: () => null,
+    submeterUsuario: () => null,
 })
 
 export const useCadastroUsuarioContext = () => {
@@ -28,6 +30,8 @@ export const useCadastroUsuarioContext = () => {
 }
 
 export const CadastroUsuarioProvider = ({ children }) => {
+
+    const navegar = useNavigate()
 
     const [usuario, setUsuario] = useState(usuarioInicial)
 
@@ -103,6 +107,11 @@ export const CadastroUsuarioProvider = ({ children }) => {
         })
     }
 
+    const submeterUsuario = () => {
+        console.log(usuario);
+        navegar('/cadastro/concluido')
+    }
+
     const contexto = {
         usuario,
         setPerfil,
@@ -112,7 +121,8 @@ export const CadastroUsuarioProvider = ({ children }) => {
         setCidade,
         setEmail,
         setSenha,
-        setSenhaConfirmada
+        setSenhaConfirmada,
+        submeterUsuario
     }
 
     return (

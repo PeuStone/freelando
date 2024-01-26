@@ -118,6 +118,7 @@ export const ListaSuspensa = ({ titulo, opcoes, valor, onChange }) => {
                 estaAberta={estaAberta}
                 onClick={() => alternarVisibilidade(!estaAberta)}
                 onKeyDown={manipularTeclaTeclado}
+                type="button"
             >
                 <div>
                     {valor ? valor.text : 'Selecione'}
