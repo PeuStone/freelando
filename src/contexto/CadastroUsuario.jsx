@@ -14,6 +14,7 @@ const usuarioInicial = {
 
 export const CadastroUsuarioContext = createContext({
     usuario: usuarioInicial,
+    erros: {},
     setPerfil: () => null,
     setInteresse: () => null,
     setNomeCompleto: () => null,
@@ -23,6 +24,7 @@ export const CadastroUsuarioContext = createContext({
     setSenha: () => null,
     setSenhaConfirmada: () => null,
     submeterUsuario: () => null,
+    possoSelecionarInteresse: () => null,
 })
 
 export const useCadastroUsuarioContext = () => {
@@ -112,6 +114,10 @@ export const CadastroUsuarioProvider = ({ children }) => {
         navegar('/cadastro/concluido')
     }
 
+    const possoSelecionarInteresse = () => {
+        return !!usuario.perfil
+    }
+
     const contexto = {
         usuario,
         setPerfil,
@@ -122,7 +128,8 @@ export const CadastroUsuarioProvider = ({ children }) => {
         setEmail,
         setSenha,
         setSenhaConfirmada,
-        submeterUsuario
+        submeterUsuario,
+        possoSelecionarInteresse
     }
 
     return (

@@ -1,9 +1,10 @@
 import GrupoRadio from "../../componentes/InputRadio/GrupoRadio"
 import { Col, Row } from "react-grid-system"
 import { Botao } from "../../componentes/Botao"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import GrupoTipografia from "../../componentes/GrupoTipografia"
 import { useCadastroUsuarioContext } from "../../contexto/CadastroUsuario"
+import { useEffect } from "react"
 
 const opcoes = [
     {
@@ -34,7 +35,19 @@ const opcoes = [
 
 const Interesses = () => {
 
-    const { usuario, setInteresse } = useCadastroUsuarioContext()
+    const {
+        usuario,
+        setInteresse,
+        possoSelecionarInteresse
+    } = useCadastroUsuarioContext()
+
+    const navegar = useNavigate()
+
+    useEffect(() => {
+        if (!possoSelecionarInteresse()) {
+            navegar('/cadastro')
+        }
+    }, [navegar, possoSelecionarInteresse])
 
     return (
         <div style={{ textAlign: 'center' }}>
