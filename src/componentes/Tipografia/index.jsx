@@ -26,6 +26,7 @@ const estilos = {
     font-size: 24px;
     font-weight: 500;
     line-height: 29px;
+    margin: 16px 0;
     `,
     body: `
     font-weight: 400;
