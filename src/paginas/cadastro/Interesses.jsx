@@ -13,7 +13,7 @@ const opcoes = [
     },
     {
         valor: 2,
-        label: 'Desing e Multimídia',
+        label: 'Design e Multimídia',
     },
     {
         valor: 3,
