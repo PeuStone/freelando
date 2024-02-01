@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { Link } from '../../componentes/Link'
 import { Link as RouterLink } from "react-router-dom"
 import { Botao } from '../../componentes/Botao'
+import { useSessaoUsuarioContext } from '../../contexto/SessaoUsuario'
 
 const FormularioEstilizado = styled.form`
     border-bottom: 1px solid;
@@ -19,6 +20,13 @@ const PaginaLogin = () => {
 
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
+
+    const { login } = useSessaoUsuarioContext()
+
+    const tentarEfetuarLogin = async (evento) => {
+        evento.preventDefault();
+        login(email, senha)
+    }
 
     return (
         <Container>
@@ -33,7 +41,7 @@ const PaginaLogin = () => {
                                 Efetuar login
                             </Tipografia>
                         </div>
-                        <FormularioEstilizado>
+                        <FormularioEstilizado onSubmit={tentarEfetuarLogin}>
                             <CampoTexto
                                 titulo="Email"
                                 valor={email}
