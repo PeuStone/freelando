@@ -2,10 +2,10 @@ import styled from "@emotion/styled";
 import banner from './assets/banner-perfil.png';
 import avatar from './assets/avatar.png';
 import { Col, Container, Row } from "react-grid-system";
-import { Card } from '../../componentes/Card';
-import { Tipografia } from '../../componentes/Tipografia';
-import { CampoTexto } from '../../componentes/CampoTexto';
-import { Botao } from "../../componentes/Botao";
+import { Card } from '../../../componentes/Card';
+import { Tipografia } from '../../../componentes/Tipografia';
+import { CampoTexto } from '../../../componentes/CampoTexto';
+import { Botao } from "../../../componentes/Botao";
 
 const TituloEstilizado = styled.h1`
     background: url(${banner}) no-repeat;
