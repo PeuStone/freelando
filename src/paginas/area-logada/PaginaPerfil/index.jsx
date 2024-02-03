@@ -8,7 +8,6 @@ import { CampoTexto } from '../../../componentes/CampoTexto';
 import { Botao } from "../../../componentes/Botao";
 import { useEffect } from "react";
 import http from '../../../http';
-import { ArmazenadorToken } from '../../../utils/ArmazenadorToken';
 
 const TituloEstilizado = styled.h1`
     background: url(${banner}) no-repeat;
