@@ -62,9 +62,11 @@ const PaginaLogin = () => {
                                 </RouterLink>
                             </div>
                             <div style={{ textAlign: 'center' }}>
-                                <Botao>
-                                    Login
-                                </Botao>
+                                <RouterLink to='/area-logada/perfil'>
+                                    <Botao>
+                                        Login
+                                    </Botao>
+                                </RouterLink>
                             </div>
                         </FormularioEstilizado>
                         <div style={{ textAlign: 'center' }}>
