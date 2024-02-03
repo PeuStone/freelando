@@ -28,12 +28,7 @@ const ImagemEstilizada = styled.img`
 const PaginaPerfil = () => {
 
     useEffect(() => {
-        const token = ArmazenadorToken.AccessToken
-        http.get('profile', {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        http.get('profile')
             .then(resposta => console.log(resposta.data))
             .catch(erro => console.error(erro))
     }, [])
