@@ -6,10 +6,14 @@ export class ArmazenadorToken {
         sessionStorage.setItem(ACCESS_TOKEN, accessToken)
         sessionStorage.setItem(REFRESH_TOKEN, refreshToken)
     }
-    static get AccessToken() {
+    static get accessToken() {
         return sessionStorage.getItem(ACCESS_TOKEN)
     }
-    static get RefreshToken() {
+    static get refreshToken() {
         return sessionStorage.getItem(REFRESH_TOKEN)
+    }
+    static efetuarLogout() {
+        sessionStorage.removeItem(ACCESS_TOKEN)
+        sessionStorage.removeItem(REFRESH_TOKEN)
     }
 }

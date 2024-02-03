@@ -11,6 +11,8 @@ import { IconeTwitch } from "../componentes/Icones/IconeTwitch"
 import { IconeInstagram } from "../componentes/Icones/IconeInstagram"
 import { IconeTwitter } from "../componentes/Icones/IconeTwitter"
 import { Outlet } from "react-router-dom"
+import { Link as RouterLink } from 'react-router-dom'
+import { ArmazenadorToken } from "../utils/ArmazenadorToken"
 
 
 const LayoutBase = ({ children }) => {
@@ -23,7 +25,12 @@ const LayoutBase = ({ children }) => {
                             <FreelandoLogo />
                         </Col>
                         <Col style={{ textAlign: 'right' }}>
-                            <Link>Login</Link>
+                            <RouterLink to="/login">
+                                <Link>Login</Link>
+                            </RouterLink>
+                        </Col>
+                        <Col style={{ textAlign: 'right' }}>
+                            <Link onClick={() => ArmazenadorToken.efetuarLogout()}>Logout</Link>
                         </Col>
                     </Row>
                 </Container>
