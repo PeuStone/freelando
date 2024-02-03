@@ -13,9 +13,11 @@ import { IconeTwitter } from "../componentes/Icones/IconeTwitter"
 import { Outlet } from "react-router-dom"
 import { Link as RouterLink } from 'react-router-dom'
 import { ArmazenadorToken } from "../utils/ArmazenadorToken"
+import { useSessaoUsuarioContext } from "../contexto/SessaoUsuario"
 
 
 const LayoutBase = ({ children }) => {
+    const { logout, usuarioLogado } = useSessaoUsuarioContext()
     return (
         <>
             <Cabecalho>
@@ -25,12 +27,18 @@ const LayoutBase = ({ children }) => {
                             <FreelandoLogo />
                         </Col>
                         <Col style={{ textAlign: 'right' }}>
-                            <RouterLink to="/login">
-                                <Link>Login</Link>
-                            </RouterLink>
-                        </Col>
-                        <Col style={{ textAlign: 'right' }}>
-                            <Link onClick={() => ArmazenadorToken.efetuarLogout()}>Logout</Link>
+                            {
+                                usuarioLogado ?
+                                    <RouterLink to='/'>
+                                        <Link onClick={logout}>
+                                            Logout
+                                        </Link>
+                                    </RouterLink>
+                                    :
+                                    <RouterLink to="/login">
+                                        <Link>Login</Link>
+                                    </RouterLink>
+                            }
                         </Col>
                     </Row>
                 </Container>
