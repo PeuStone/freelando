@@ -14,7 +14,7 @@ export const useSessaoUsuarioContext = () => {
 }
 
 export const SessaoUsuarioProvider = ({ children }) => {
-    const [usuarioLogado, setUsuarioLogado] = useState(!!ArmazenadorToken.accessToken)
+    const [usuarioLogado, setUsuarioLogado] = useState(!ArmazenadorToken.accessToken)
 
     const login = (email, senha) => {
         http.post('auth/login', {
